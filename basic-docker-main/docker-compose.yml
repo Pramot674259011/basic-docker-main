@@ -12,7 +12,7 @@ services:
       - MYSQL_PASSWORD=1234
     restart: always
     networks:
-      - web_network_Pup
+      - web_network_bank
 
   php:
     depends_on:
@@ -25,7 +25,7 @@ services:
       - "9000"
     restart: always
     networks:
-      - web_network_Pup
+      - web_network_bank
 
   nginx:
     image: nginx:stable-alpine
@@ -38,9 +38,9 @@ services:
       - "8011:80" # เปลี่ยน Port ฝั่งเครื่องคอมเป็น 8080 เพื่อป้องกันปัญหา Port Invalid
     restart: always
     networks:
-      - web_network_Pup
+      - web_network_bank
 
 networks:
-  web_network_Pup:
+  web_network_bank:
     name: lemp
     driver: bridge
